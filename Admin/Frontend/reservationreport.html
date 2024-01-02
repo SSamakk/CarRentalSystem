@@ -1,0 +1,72 @@
+<html>
+    <div class="logoutButton">
+        <a href="/CarRental/Log/Login.php">Logout</a>
+    </div>
+
+    <head>
+        <title>Car Rental </title>
+        <link href="/CarRental/Theme/pstyles.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div class="logoBackground">
+            <div class="logo">
+                <h6>REPORT<h6>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/CarRental/Admin/Frontend/customer.html">Customers</a></li>
+                <li><a href="/CarRental/Admin/Frontend/cars.html">Cars</a></li>
+                <li><a href="../Frontend/office.html">Offices</a></li>
+                <li id="active"><a href="">Reservation Report</a></li>
+                <li><a href="/CarRental/Admin/Frontend/reservationreportcar.html">Reservation For Cars</a></li>
+                <li><a href="/CarRental/Admin/Frontend/paymentreport.html">Payment Report</a></li>
+                <li><a href="/CarRental/Admin/Frontend/carstatus.html">Cars Status</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <form action="/CarRental/Admin/Backend/viewreservations.php" method="get" onsubmit="return formatDateInput()">
+                <h1>View Reservations:</h1>
+                <br>
+                Start Date: <input type="date" name="start" id="start" /><br><br>
+                End Date: <input type="date" name="end" id="end" /><br><br>
+                <input type="submit" name="cartype1" value="View">
+            </form>
+        </div>
+
+
+        <script>
+            function formatDateInput() {
+                var startDateInput = document.getElementById("start");
+                var endDateInput = document.getElementById("end");
+                var error_message='';    
+                
+                // Check if the dates are not empty
+                if (startDateInput.value === "") {
+                    error_message +="Please enter start date \n";
+                }
+                if (endDateInput.value === "") {
+                    error_message +="Please enter end date \n";
+                }
+                if(error_message !== ""){
+                    alert(error_message);
+                    return false;
+                }
+
+                // Format the start date
+                var startDate = new Date(startDateInput.value);
+                var formattedStartDate = startDate.getFullYear() + '-' + ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' + ('0' + startDate.getDate()).slice(-2);
+                startDateInput.value = formattedStartDate;
+
+                // Format the end date
+                var endDate = new Date(endDateInput.value);
+                var formattedEndDate = endDate.getFullYear() + '-' + ('0' + (endDate.getMonth() + 1)).slice(-2) + '-' + ('0' + endDate.getDate()).slice(-2);
+                endDateInput.value = formattedEndDate;
+
+                return true;
+            }
+        </script>
+    </body>
+</html>

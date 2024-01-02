@@ -1,0 +1,88 @@
+<html>
+    <div class="logoutButton">
+        <a href="/CarRental/Log/Login.php">Logout</a>
+    </div>
+    <head>
+        <title>Car Rental </title>
+        <link href="/CarRental/Theme/pstyles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+		<div class="logoBackground">
+  	        <div class="logo"><h6>CARS<h6></div>
+        </div>
+		<div class="menu">
+  	        <ul>
+                <li><a href="../Frontend/customer.html">Customers</a></li>
+                <li id="active"><a href="">Cars</a></li>
+                <li><a href="../Frontend/office.html">Offices</a></li>
+                <li><a href="/CarRental/Admin/Frontend/reservationreport.html">Reservation Report</a></li>
+                <li><a href="/CarRental/Admin/Frontend/reservationreportcar.html">Reservation For Cars</a></li>
+                <li><a href="/CarRental/Admin/Frontend/paymentreport.html">Payment Report</a></li>
+                <li><a href="/CarRental/Admin/Frontend/carstatus.html">Cars Status</a></li>
+                
+                
+            </ul>
+        </div>
+	
+        <div class="carcotainer">
+            <form action= "../Backend/addcar.php" method="POST" onsubmit="return validateForm()">
+                <h1> ADD CAR </h1>
+                Car ID: <input type="text" name="car_id" id="car_id"/><br><br>
+                Office ID: <input type="text" name="office_id" id="office_id"/><br><br>
+                Model: <input type="text" name="model" id="model"/><br><br>
+                Year:<br><input type="text" name="year" id="year"/><br><br>
+                Price: <input type="text" name="price" id="price"/><br><br>
+                Status: 
+                <select name="status" id="status">
+                    <option value="active">Active</option>
+                    <option value="out of service">Out of Service</option>
+                    <option value="rented">Rented</option>
+                </select><br><br>
+                <input type="submit" value="Submit" class="submitbutton"/>
+            </form> 
+            <br> <br></br></br>
+
+            <form action="../Backend/viewcar.php" method="post" >
+                <h1> VIEW CARS </h1>
+                <input type="submit" value="View"/>
+            </form>
+        </div>	
+        <script>
+            function validateForm() {
+                var car_id = document.getElementById("car_id").value;
+                var office_id = document.getElementById("office_id").value;
+                var model = document.getElementById("model").value;
+                var year = document.getElementById("year").value;
+                var price = document.getElementById("price").value;
+
+                var error_message='';
+
+                if (car_id === "") {
+                    error_message +="Car ID Field is Empty \n";
+                } 
+
+                if (office_id === "") {
+                    error_message +="Office ID Field is Empty \n";
+                } 
+                
+                if (model === "") {
+                    error_message +="Model Field is Empty \n";
+                } 
+
+                if (year === "") {
+                    error_message +="Year Field is Empty \n";
+                } 
+
+                if (price === "") {
+                    error_message +="Price Field is Empty \n";
+                } 
+
+                if(error_message !== ""){
+                    alert(error_message);
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</body>
+</html>

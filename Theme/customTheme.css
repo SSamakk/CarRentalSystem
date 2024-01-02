@@ -1,0 +1,58 @@
+body {
+    background-image: url('/CarRental/assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: hsl(0, 0%, 95%);
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    opacity: 0.8;
+}
+
+h1 {
+    color: rgb(63 114 146);
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    opacity: 0.8; 
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0.8; 
+}
+
+button {
+    background-color: #3079a3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:hover {
+    background-color: #3079a3;
+    opacity: 1;
+}

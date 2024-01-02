@@ -1,0 +1,87 @@
+<html>
+    <div class="logoutButton">
+        <a href="/CarRental/Log/Login.php">Logout</a>
+    </div>
+    <head>
+        <title>Car Rental </title>
+        <link href="/CarRental/Theme/pstyles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+		<div class="logoBackground">
+  	<div class="logo"><h6>OFFICES<h6></div>
+    
+  </div>
+		<div class="menu">
+  	<ul>
+        <li><a href="../Frontend/customer.html">Customers</a></li>
+        <li><a href="../Frontend/cars.html">Cars</a></li>
+        <li id="active"><a href="">Offices</a></li>
+		<li><a href="/CarRental/Admin/Frontend/reservationreport.html">Reservation Report</a></li>
+        <li><a href="/CarRental/Admin/Frontend/reservationreportcar.html">Reservation For Cars</a></li>
+        <li><a href="/CarRental/Admin/Frontend/paymentreport.html">Payment Report</a></li>
+        <li><a href="/CarRental/Admin/Frontend/carstatus.html">Cars Status</a></li>
+    </ul>
+  </div>
+	
+    <div class="carcotainer">
+        <form action= "../Backend/addoffice.php" method="POST" onsubmit="return validateForm()">
+            <h1> ADD OFFICE </h1>
+            Office ID: <input type="text" name="office_id" id="office_id"/><br><br>
+            Phone: <input type="text" name="phone" id="phone"/><br><br>
+            E-mail: <input type="text" name="email" id="email"/><br><br>
+            Country:<br><input type="text" name="country" id="country"/><br><br>
+            City:<br><input type="text" name="city" id="city"/><br><br>
+            <input type="submit" value="Submit" class="submitbutton"/>
+        </form> 
+        <br> <br></br></br>
+
+        <form action="../Backend/viewoffice.php" method="post" >
+            <h1> VIEW OFFICES </h1>
+            <input type="submit" value="View"/>
+        </form>
+        
+    </div>	
+	<script>
+        function validateForm() {
+            var office_id = document.getElementById("office_id").value;
+            var phone = document.getElementById("phone").value;
+			var email = document.getElementById("email").value;
+			var country = document.getElementById("country").value;
+			var city = document.getElementById("city").value;
+
+            var error_message='';
+            
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email) && email !== "") {
+                error_message += "Invalid Email Format. Please enter an email as the following format: example@example.com \n";
+            }
+
+            if (office_id === "") {
+                error_message +="Office ID Field is Empty \n";
+            } 
+
+            if (phone === "") {
+                error_message +="Phone Field is Empty \n";
+            } 
+			
+			if (email === "") {
+                error_message +="E-mail Field is Empty \n";
+            } 
+
+			if (country === "") {
+                error_message +="Country Field is Empty \n";
+            } 
+
+			if (city === "") {
+                error_message +="City Field is Empty \n";
+            } 
+
+            if(error_message !== ""){
+                alert(error_message);
+                return false;
+            }
+            return true;
+        }
+    </script>
+	</body>
+</html>
